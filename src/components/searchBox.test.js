@@ -11,17 +11,13 @@ describe('A suite', function () {
         const component = shallow(<SearchBox {...props} />);
         expect(component.find("input").first().props().value).toBe(props.value);
         // console.log(component.debug())
-        // expect(1+1).toBe(2)
     });
 
     it('onChange should be called', function(){
         const props = { onChange: jest.fn(), value: "123" };
         const component = mount(<SearchBox {...props} />);
         component.find("input").simulate("change", { target: { value: "222" } });
-        // props.onChange = jest.fn(props.onChange);
-        // let tmp = jest.fn(props.onChange);
         expect(props.onChange).toHaveBeenCalled();
-        // console.log(component.debug())
     })
     
     it ('test children', function(){
